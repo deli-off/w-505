@@ -374,12 +374,13 @@ main.append(counter__wrapper)
 btn2.onclick = () => {
     if (span.innerHTML < 100) {
         span.innerHTML++
-        counter__wrapper__count__price.innerHTML = 109.95 + 109.95 + ' $'
     }
 }
 
 if (span.innerHTML = '0') {
     counter__wrapper__count__price.innerHTML = '0'
+} else if (span.innerHTML = '1') {
+    counter__wrapper__count__price = '109.95'
 }
 
 btn1.onclick = () => {
