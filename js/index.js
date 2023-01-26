@@ -3,7 +3,7 @@ let arr = [{
     "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     "price": 109.95,
-    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
     "category": "men's clothing",
     "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
     "rating": {
@@ -80,7 +80,7 @@ let arr = [{
     "id": 8,
     "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
     "price": 10.99,
-    "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+    "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
     "category": "jewelery",
     "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
     "rating": {
@@ -220,66 +220,103 @@ let arr = [{
         "count": 145
     }
 }]
+
 let container = document.querySelector('.container')
+let myCart = [];
+let h2 = document.querySelector('#count')
+let showFive = document.querySelector('#showFive')
+let showALL = document.querySelector('#showALL')
 
-for (let i = 0; i <= 5; i++) {
+const reload = () => {
+    container.innerHTML = ""
 
-    // create
-    let bag__card = document.createElement('div')
-    let bag__crad__img = document.createElement('div')
-    let bag__img = document.createElement('img')
-    let bag__card__desc = document.createElement('div')
-    let h3 = document.createElement('h3')
-    let p = document.createElement('p')
-    let bag__card__price = document.createElement('div')
-    let bag__card__price__boxOne = document.createElement('div')
-    let bag__card__price__boxTwo = document.createElement('div')
-    let bag__card__price__boxThree = document.createElement('div')
-    let starImg = document.createElement('img')
-    let priceImg = document.createElement('img')
-    let boxImg = document.createElement('img')
-    let starSpan = document.createElement('span')
-    let priceSpan = document.createElement('span')
-    let boxSpan = document.createElement('span')
-    let bag__card__desc__btn = document.createElement('div')
-    let bag__card__desc__btn1 = document.createElement('button')
-
-
-    // styling
-    bag__card.classList.add('bag__card')
-    bag__crad__img.classList.add('bag__card__img')
-    bag__card__desc.classList.add('bag__card__desc')
-    bag__card__price.classList.add('bag__card__price')
-    bag__card__desc__btn.classList.add('bag__card__desc__btn')
-    bag__card__desc__btn1.classList.add('bag__card__desc__btn1')
-    bag__card__desc__btn.classList.add('bag__card__desc__btn')
-
-    bag__card__desc__btn1.innerHTML = "В избранное"
+    for (let item of arr) {
+        // create
+        let bag__card = document.createElement('div')
+        let bag__crad__img = document.createElement('div')
+        let bag__img = document.createElement('img')
+        let bag__card__desc = document.createElement('div')
+        let h3 = document.createElement('h3')
+        let p = document.createElement('p')
+        let bag__card__price = document.createElement('div')
+        let bag__card__price__boxOne = document.createElement('div')
+        let bag__card__price__boxTwo = document.createElement('div')
+        let bag__card__price__boxThree = document.createElement('div')
+        let starImg = document.createElement('img')
+        let priceImg = document.createElement('img')
+        let boxImg = document.createElement('img')
+        let starSpan = document.createElement('span')
+        let priceSpan = document.createElement('span')
+        let boxSpan = document.createElement('span')
+        let bag__card__desc__btn = document.createElement('div')
+        let bag__card__desc__btn1 = document.createElement('button')
 
 
-    arr.filter((el) => {
-        // bag__img.setAttribute('src', 'el.image')
-        bag__img.setAttribute('src', 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg')
+        // styling
+        bag__card.classList.add('bag__card')
+        bag__crad__img.classList.add('bag__card__img')
+        bag__card__desc.classList.add('bag__card__desc')
+        bag__card__price.classList.add('bag__card__price')
+        bag__card__desc__btn.classList.add('bag__card__desc__btn')
+        bag__card__desc__btn1.classList.add('bag__card__desc__btn1')
+        bag__card__desc__btn.classList.add('bag__card__desc__btn')
+
+        bag__card__desc__btn1.innerHTML = "В избранное"
+
+        bag__img.src = item.image
+        // bag__img.setAttribute('src', 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg')
         bag__img.setAttribute('width', '115px')
         bag__img.setAttribute('height', '161px')
-        h3.innerHTML = el.title
-        p.innerHTML = el.description
-        priceSpan.innerHTML = el.price
-        starSpan.innerHTML = el.rating.rate
-        boxSpan.innerHTML = el.rating.count
-    })
+        h3.innerHTML = item.category
+        p.innerHTML = item.description.slice(0, 155).toLowerCase()
+        priceSpan.innerHTML = item.price
+        starSpan.innerHTML = item.rating.rate
+        boxSpan.innerHTML = item.rating.count
 
-    priceImg.setAttribute('src', './img/price-icon.png')
-    starImg.setAttribute('src', './img/star-icon.svg')
-    boxImg.setAttribute('src', './img/box-icon.png')
 
-    container.append(bag__card)
-    bag__card.append(bag__crad__img, bag__card__desc,)
-    bag__crad__img.append(bag__img)
-    bag__card__desc.append(h3, p, bag__card__price, bag__card__desc__btn)
-    bag__card__price.append(bag__card__price__boxOne, bag__card__price__boxTwo, bag__card__price__boxThree)
-    bag__card__price__boxOne.append(priceImg, priceSpan)
-    bag__card__price__boxTwo.append(starImg, starSpan)
-    bag__card__price__boxThree.append(boxImg, boxSpan)
-    bag__card__desc__btn.append(bag__card__desc__btn1)
+        priceImg.setAttribute('src', './img/price-icon.png')
+        starImg.setAttribute('src', './img/star-icon.svg')
+        boxImg.setAttribute('src', './img/box-icon.png')
+
+        container.append(bag__card)
+        bag__card.append(bag__crad__img, bag__card__desc,)
+        bag__crad__img.append(bag__img)
+        bag__card__desc.append(h3, p, bag__card__price, bag__card__desc__btn)
+        bag__card__price.append(bag__card__price__boxOne, bag__card__price__boxTwo, bag__card__price__boxThree)
+        bag__card__price__boxOne.append(priceImg, priceSpan)
+        bag__card__price__boxTwo.append(starImg, starSpan)
+        bag__card__price__boxThree.append(boxImg, boxSpan)
+        bag__card__desc__btn.append(bag__card__desc__btn1)
+
+        bag__card__desc__btn1.onclick = () => {
+            if (myCart.includes(item)) {
+                myCart = myCart.filter((el) => el.id !== item.id);
+                bag__card__desc__btn1.innerHTML = "В избранное";
+                bag__card__desc__btn1.style.color = "";
+                bag__card__desc__btn1.style.backgroundColor = "";
+            } else {
+                myCart.push(item);
+                bag__card__desc__btn1.innerHTML = "Добавлено";
+                bag__card__desc__btn1.style.backgroundColor = "blue";
+                bag__card__desc__btn1.style.color = "white";
+            }
+
+            h2.innerHTML = `В корзине: ${myCart.length} товар`;
+
+        }
+
+    }
 }
+
+reload(arr)
+
+
+showFive.onclick = () => {
+    reload(arr.slice(1, 4))
+}
+
+showALL.onclick = () => {
+    reload(arr)
+}
+
+console.log(showFive);

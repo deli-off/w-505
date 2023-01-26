@@ -5,12 +5,12 @@
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1130px;
     margin: 0 auto;
     display: flex;
-    gap: 150px;
+    gap: 15px;
     margin-top: 65px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .title {
@@ -45,6 +45,8 @@
 .title__btns button:hover {
     background-color: black;
     color: white;
+    height: 100%;
+
 }
 
 .bag__card {
@@ -58,6 +60,10 @@
     background-color: white;
     max-width: 365px;
     padding: 19px 0;
+}
+
+.bag__card__img img {
+    object-fit: contain;
 }
 
 .bag__card__desc {
@@ -112,6 +118,6 @@
 }
 
 .bag__card__desc__btn {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
