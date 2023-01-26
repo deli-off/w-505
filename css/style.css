@@ -121,3 +121,62 @@
     margin-top: 50px;
 }
 
+.korzina {
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+    margin-bottom: 300px;
+}
+
+.counter__wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #c4c4c4;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.counter__wrapper__title h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+
+.counter__wrapper__count {
+    margin-left: 300px;
+    background-color: grey;
+    border-radius: 15px;
+    padding: 30px;
+    gap: 20px;
+}
+
+.counter__wrapper__img {
+    margin-right: 30px;
+}
+
+.counter__wrapper__img img {
+    background: none !important;
+}
+
+.counter__wrapper__count__btns span {
+    color: white;
+}
+
+.btn {
+    padding: 10px;
+    background-color: #c4c4c4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+.counter__wrapper__count__price {
+    margin-top: 10px;
+    color: white;
+}

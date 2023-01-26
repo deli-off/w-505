@@ -312,7 +312,7 @@ reload(arr)
 
 
 showFive.onclick = () => {
-    reload(arr.slice(1, 4))
+    reload(arr.slice(0, 4))
 }
 
 showALL.onclick = () => {
@@ -320,3 +320,71 @@ showALL.onclick = () => {
 }
 
 console.log(showFive);
+
+
+// counter
+let main = document.querySelector('.korzina')
+
+// create
+let counter__wrapper = document.createElement('div');
+let counter__wrapper__img = document.createElement('div')
+let img = document.createElement('img')
+let counter__wrapper__title = document.createElement('div')
+let second_h2 = document.createElement('h2')
+let p = document.createElement('p')
+let counter__wrapper__count = document.createElement('div')
+let counter__wrapper__count__btns = document.createElement('div')
+let btn1 = document.createElement('button')
+let btn2 = document.createElement('button')
+let span = document.createElement('span')
+let counter__wrapper__count__price = document.createElement('p')
+
+
+// class
+counter__wrapper.classList.add('counter__wrapper')
+counter__wrapper__img.classList.add('counter__wrapper__img')
+counter__wrapper__title.classList.add('counter__wrapper__title')
+counter__wrapper__count.classList.add('counter__wrapper__count')
+counter__wrapper__count__btns.classList.add('counter__wrapper__count__btns')
+btn1.classList.add('btn')
+btn2.classList.add('btn')
+counter__wrapper__count__price.classList.add('counter__wrapper__count__price')
+
+
+// text
+second_h2.innerHTML = 'Fjallraven - Foldsack No. 1 Backpack'
+p.innerHTML = 'mens clothing'
+btn1.innerHTML = '-'
+span.innerHTML = '1'
+btn2.innerHTML = '+'
+counter__wrapper__count__price.innerHTML = '109.95 $'
+
+// attribute 
+img.setAttribute('src', './img/ryukzak.png')
+
+
+// append  
+counter__wrapper__count__btns.append(btn1, span, btn2)
+counter__wrapper__count.append(counter__wrapper__count__btns, counter__wrapper__count__price)
+counter__wrapper__title.append(second_h2, p)
+counter__wrapper__img.append(img)
+counter__wrapper.append(counter__wrapper__img, counter__wrapper__title, counter__wrapper__count)
+main.append(counter__wrapper)
+
+btn2.onclick = () => {
+    if (span.innerHTML < 100) {
+        span.innerHTML++
+        counter__wrapper__count__price.innerHTML = 109.95 + 109.95 + ' $'
+    }
+}
+
+if (span.innerHTML = '0') {
+    counter__wrapper__count__price.innerHTML = '0'
+}
+
+btn1.onclick = () => {
+    if (span.innerHTML > 0) {
+        span.innerHTML--
+    }
+}
+
